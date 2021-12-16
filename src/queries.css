@@ -1,0 +1,33 @@
+@media only screen and (min-width: 767px) {
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-column: inherit;
+    grid-template-columns: 50% 50%;
+    border: 2px solid black;
+  }
+
+  h1 {
+    margin-left: 6px;
+  }
+
+  .Add-list {
+    grid-column: 2;
+    grid-row: 2;
+    -ms-grid-columns: inherit;
+    padding: 0;
+  }
+
+  .first-container {
+    margin-top: 1rem;
+    -ms-grid-columns: inherit;
+    grid-column: 1;
+    grid-row: 2;
+    width: 31vw;
+    padding-left: 4vw;
+  }
+
+  .first-container h2 {
+    font-weight: bold;
+  }
+}

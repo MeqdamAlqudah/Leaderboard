@@ -1,0 +1,44 @@
+* {
+  list-style: none;
+}
+
+button {
+  box-shadow: 3px 3px 1px 0.1px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+input {
+  border: 2px solid black;
+  margin-top: 10px;
+}
+
+h1,
+h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.leaderboard-list {
+  border: 2px solid black;
+  padding: 0;
+}
+
+.leaderboard-list :nth-child(even) {
+  background-color: #dddd;
+}
+
+.leaderboard-list li {
+  padding: 2px;
+  padding-left: 5px;
+}
+
+.Add-list {
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Add-list button {
+  margin-top: 10px;
+}
