@@ -18,7 +18,7 @@ async function getData(url) {
 }
 function addScore() {
   const name = document.querySelector('.name').value;
-  const score = document.querySelector('.score').value;
+  const score = Number(document.querySelector('.score').value);
   const ul = document.querySelector('.leaderboard-list');
   const li = document.createElement('li');
   const p = document.createElement('p');
