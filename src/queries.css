@@ -4,16 +4,25 @@
     display: grid;
     -ms-grid-column: inherit;
     grid-template-columns: 50% 50%;
-    border: 2px solid black;
+    box-shadow: 20px 19px 10px 1px hsl(235deg 32% 13% / 43%);
+  }
+
+  body {
+    margin: 40px;
   }
 
   h1 {
     margin-left: 6px;
   }
 
-  .Add-list {
+  h2 {
+    margin-left: 0;
+  }
+
+  ul.Add-list {
     grid-column: 2;
     grid-row: 2;
+    width: 20rem;
     -ms-grid-columns: inherit;
     padding: 0;
   }
@@ -29,5 +38,11 @@
 
   .first-container h2 {
     font-weight: bold;
+  }
+
+  .leaderboard-list {
+    width: 26rem;
+    padding: 4px;
+    box-shadow: -20px -10px 1px 1px hsl(242deg 88% 66% / 50%);
   }
 }
