@@ -31,6 +31,7 @@ Leaderboard
 - In your local PC, open your terminal in the folder you would like to clone the project.
 - Clone the repo with the command: `git clone (copied link)`; like so: `git clone https://github.com/MeqdamAlqudah/Leaderboard`
 - On the terminal, navigate into the directory like so: `cd Leaderboard`
+-  first running npm i and npm start
 
 ### Prerequisites
 
