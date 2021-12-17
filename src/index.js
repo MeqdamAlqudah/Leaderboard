@@ -103,6 +103,15 @@ data.then((element) => {
   }
 });
 
+data = getData(url);
+data.then((element) => {
+  for (let i = 0; i < element.length; i += 1) {
+    if (element.score > maxScore) {
+      maxScore = element.score;
+      localStorage.setItem('maxScore', JSON.stringify(maxScore));
+    }
+  }
+});
 document.querySelector('.refresh').addEventListener('click', () => {
   data = getData(url);
   data.then((element) => {
