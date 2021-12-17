@@ -2,7 +2,7 @@ import 'lodash';
 import './style.css';
 import './queries.css';
 
-async function getData(url) {
+const getData = async (url) => {
   const myRequest = new Request(url, {
     method: 'GET',
     headers: {
@@ -15,8 +15,8 @@ async function getData(url) {
     (response) => response.json(),
   ).then((json) => json.result);
   return data;
-}
-function addScore() {
+};
+const addScore = () => {
   const name = document.querySelector('.name').value;
   const score = Number(document.querySelector('.score').value);
   const ul = document.querySelector('.leaderboard-list');
@@ -36,7 +36,7 @@ function addScore() {
       'Content-type': 'application/json',
     },
   });
-}
+};
 const displayScores = (element) => {
   const name = element.user;
   const scoreAPI = element.score;
