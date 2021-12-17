@@ -106,8 +106,8 @@ data.then((element) => {
 data = getData(url);
 data.then((element) => {
   for (let i = 0; i < element.length; i += 1) {
-    if (element.score > maxScore) {
-      maxScore = element.score;
+    if (element[i].score > maxScore) {
+      maxScore = element.score[i];
       localStorage.setItem('maxScore', JSON.stringify(maxScore));
     }
   }
