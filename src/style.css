@@ -54,6 +54,7 @@ h2 {
   flex-direction: column;
   align-items: flex-end;
   padding: 0;
+  margin-bottom: 18rem;
 }
 
 .Add-list button {
