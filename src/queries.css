@@ -43,5 +43,6 @@
   .leaderboard-list {
     width: 26rem;
     padding: 4px;
+    box-shadow: -20px -10px 1px 1px hsl(242deg 88% 66% / 50%);
   }
 }
