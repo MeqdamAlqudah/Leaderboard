@@ -26,7 +26,7 @@ const addScore = () => {
     localStorage.setItem('maxScore', JSON.stringify(maxScore));
   }
 
-  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cmKYedACxK6LuaZtYZrZ/scores/', {
+  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/hSln0Q85wcoqO8IhOhNI/scores/', {
     method: 'POST',
     body: JSON.stringify({
       user: name,
@@ -78,26 +78,59 @@ const displayScores = (element) => {
   div.appendChild(p2);
   ul.appendChild(li);
 };
-document.querySelector('.button button').addEventListener('click', () => {
-  if ((document.querySelector('.name').value) && (Number.isNaN(Number(document.querySelector('.name').value))) && (!Number.isNaN(Number(document.querySelector('.score').value)))) {
+const error = document.querySelector('.Add-list li p.error');
+const name = document.querySelector('.name');
+const score = document.querySelector('.score');
+document.querySelector('.button button').addEventListener('click', (e) => {
+  // eslint-disable-next-line no-restricted-properties
+  if (((!window.isNaN(name.value)) || (window.isNaN(score.value)))) {
+    e.preventDefault();
+    error.textContent = 'Please enter a valid value';
+  } else if ((!name.value.length || !score.value.length)) {
+    e.preventDefault();
+    error.textContent = 'Please enter a valid value';
+  } else if (name.value.length > 20) {
+    e.preventDefault();
+    error.textContent = 'You are allowed just with 20 word name';
+  } else if (score.value.length > 99999) {
+    e.preventDefault();
+    error.textContent = 'Max score is 99999';
+  } else {
+    error.textContent = '';
     addScore();
     document.querySelector('.name').value = '';
     document.querySelector('.score').value = '';
   }
 });
-document.querySelector('.score').addEventListener('change', () => {
-  if ((document.querySelector('.name').value) && (Number.isNaN(Number(document.querySelector('.name').value))) && (!Number.isNaN(Number(document.querySelector('.score').value)))) {
-    addScore();
-    document.querySelector('.name').value = '';
-    document.querySelector('.score').value = '';
+document.querySelector('.score').addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) {
+    // eslint-disable-next-line no-restricted-properties
+    if (((!window.isNaN(name.value)) || (window.isNaN(score.value)))) {
+      e.preventDefault();
+      error.textContent = 'Please enter a valid value';
+    } else if ((!name.value.length || !score.value.length)) {
+      e.preventDefault();
+      error.textContent = 'Please enter a valid value';
+    } else if (name.value.length > 20) {
+      e.preventDefault();
+      error.textContent = 'You are allowed just with 20 word name';
+    } else if (score.value.length > 99999) {
+      e.preventDefault();
+      error.textContent = 'Max score is 99999';
+    } else {
+      error.textContent = '';
+      addScore();
+      document.querySelector('.name').value = '';
+      document.querySelector('.score').value = '';
+    }
   }
 });
 
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cmKYedACxK6LuaZtYZrZ/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/hSln0Q85wcoqO8IhOhNI/scores/';
 let data = getData(url);
 data.then((element) => {
   document.querySelector('.leaderboard-list').innerHTML = '';
-  const lastResult = element;
+  const lastResult = element.sort((a, b) => b.score - a.score);
   for (let i = 0; i < lastResult.length; i += 1) {
     displayScores(lastResult[i]);
   }
@@ -116,7 +149,7 @@ document.querySelector('.refresh').addEventListener('click', () => {
   data = getData(url);
   data.then((element) => {
     document.querySelector('.leaderboard-list').innerHTML = '';
-    const lastResult = element;
+    const lastResult = element.sort((a, b) => b.score - a.score);
     for (let i = 0; i < lastResult.length; i += 1) {
       displayScores(lastResult[i]);
     }
