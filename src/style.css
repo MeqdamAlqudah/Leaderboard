@@ -78,3 +78,9 @@ hr {
   background-repeat: no-repeat;
   background-color: #494950;
 }
+
+.error {
+  color: red;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+}
